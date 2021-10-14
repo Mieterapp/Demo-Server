@@ -320,7 +320,7 @@ def build_create_chat_ticket_query(data):
         "method": "createTicket",
         "sSubject": "Chat",
         "sPartner": data["contract"].code,
-        "sKeyword": "Nachrichten", # "Chat",
+        "sKeyword": "Chat", # "Chat",
         "sChannel": "APP_I",
         "sDescription": data["message"],
     }

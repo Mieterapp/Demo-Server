@@ -39,10 +39,7 @@ class AbstractBaseVerificationToken(models.Model):
         abstract = True
 
     def send_email(self, prefix):
-        if self.target_email:
-            target_email = self.target_email
-        else:
-            target_email = self.user.email
+        target_email = self.user.email
         content_text = {
             "email": target_email,
             "token": self.token,
@@ -74,5 +71,3 @@ class VerificationToken(AbstractBaseVerificationToken):
     def send_registration_email(self):
         prefix = "registration_email"
         self.send_email(prefix)
-
-

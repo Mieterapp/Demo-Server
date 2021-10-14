@@ -3,10 +3,11 @@ from requests_pkcs12 import get, head, post, put
 
 from ..settings import dw_settings
 
-SERVICE_URL = f"{dw_settings.PROTOCOL}://{dw_settings.HOST_NAME}"
+#SERVICE_URL = f"{dw_settings.PROTOCOL}://{dw_settings.HOST_NAME}"
 # comment
-# SERVICE_URL2 = f"{dw_settings.PROTOCOL}://dokuweb.datasec.de"
-# SERVICE_URL = f"{dw_settings.PROTOCOL}://dokuweb.datasec.de"
+SERVICE_URL2 = f"{dw_settings.PROTOCOL}://dokuweb.datasec.de"
+SERVICE_URL = f"{dw_settings.PROTOCOL}://dokuwebintegration.datasec.de"
+dw_settings.AUTH_TOKEN = "09BBD968F5EEB095BEA289DE7188B3C4090F6659B097FBF1AACCAD7F21E51636"
 
 def api_get(path="", query=dict, headers={}, auth_token=dw_settings.AUTH_TOKEN):
     query.update({"authtoken": auth_token})

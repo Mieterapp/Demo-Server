@@ -1,2 +1,2 @@
 Verify your email address by clicking on this link:
-    https://app.gwg-gruppe.de/verify/{{ token }}
+    https://dwapp-demo.datasec.de/api/v1/verify/{{ token }}

@@ -1,0 +1,865 @@
+{
+	"info": {
+		"_postman_id": "11fe239a-4b3b-4a0e-8392-729158bb9a01",
+		"name": "GWG | DIT BACKEND",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"philipp@litzenberger.engineering\", \"password\": \"123\", \"contract\": \"10847.0135.02\", \"birthdate\": \"1958-04-19\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/register/"
+					},
+					"response": []
+				},
+				{
+					"name": "register/verify-email/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"token\": \"f163b8dd1dde6cb736bcbbce0c2e4af823fb2f3a\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/register/verify-email/"
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"philipp@litzenberger.engineering\", \"password\": \"123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/authenticate/"
+					},
+					"response": []
+				},
+				{
+					"name": "password/reset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"a@b.cd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/password/reset/"
+					},
+					"response": []
+				},
+				{
+					"name": "password/change",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"password\": \"123\", \"token\": \"40ce003c56c269985b6962148753a65a0d4f4647\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/password/change/"
+					},
+					"response": []
+				},
+				{
+					"name": "invitation-email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"a@b.cd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/register/invite/"
+					},
+					"response": []
+				},
+				{
+					"name": "regiser-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"a@b.cd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/register/token/71b20c37219deb009692c06493f20e3cac930ebe"
+					},
+					"response": []
+				},
+				{
+					"name": "authenticated user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"a@b.cd\", \"password\": \"123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/authenticated-user/"
+					},
+					"response": []
+				},
+				{
+					"name": "delete authenticated user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"a@b.cd\", \"password\": \"123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/authenticated-user/"
+					},
+					"response": []
+				},
+				{
+					"name": "authenticated user update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phone\": \"123564\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/authenticated-user/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Real Estate",
+			"item": [
+				{
+					"name": "contracts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/contracts/"
+					},
+					"response": []
+				},
+				{
+					"name": "contracts detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/contracts/1/"
+					},
+					"response": []
+				},
+				{
+					"name": "customer center",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/customer-center/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "customer chat",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/customer-chat/"
+					},
+					"response": []
+				},
+				{
+					"name": "customer chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"message\": \"Hallo, ich hab da mal eine Frage zur Benutzung der Waschmaschine. Können Sie mir da helfen? Gruß\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/customer-chat/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"item": [
+				{
+					"name": "faqs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/faqs/"
+					},
+					"response": []
+				},
+				{
+					"name": "news",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/news/"
+					},
+					"response": []
+				},
+				{
+					"name": "offers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/offers/"
+					},
+					"response": []
+				},
+				{
+					"name": "pages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/pages/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Survey",
+			"item": [
+				{
+					"name": "survey",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/survey/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/documents/"
+					},
+					"response": []
+				},
+				{
+					"name": "documents detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOLL}}://{{host}}/api/v1/documents/00043CD6496D11E79950005056BF43?type=MIETVERTRAG",
+							"protocol": "{{PROTOCOLL}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"documents",
+								"00043CD6496D11E79950005056BF43"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "MIETVERTRAG"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issues",
+			"item": [
+				{
+					"name": "issues",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/issues/"
+					},
+					"response": []
+				},
+				{
+					"name": "issues requested",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/issues_requested/"
+					},
+					"response": []
+				},
+				{
+					"name": "issues requested",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"issue\": 1,\n    \"answers\": \"\",\n    \"status\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/issues_requested/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PushNotifications",
+			"item": [
+				{
+					"name": "apns devices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE\",\n    \"name\": \"Apple iPhone 6+\",\n    \"device_id\": \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\",\n    \"application_id\": \"XXXXXXXXXXXXXXXXXXXX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/apns/"
+					},
+					"response": []
+				},
+				{
+					"name": "register apns device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE\",\n    \"name\": \"Apple iPhone 6+\",\n    \"device_id\": \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\",\n    \"application_id\": \"XXXXXXXXXXXXXXXXXXXX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/apns/"
+					},
+					"response": []
+				},
+				{
+					"name": "change apns device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE\",\n    \"name\": \"My Apple iPhone 6+\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/apns/AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE/"
+					},
+					"response": []
+				},
+				{
+					"name": "register gcm device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"foobar\",\n    \"name\": \"Galaxy Note 3\",\n    \"device_id\": \"0x1031af3b\",\n    \"application_id\": \"XXXXXXXXXXXXXXXXXXXX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/gcm/"
+					},
+					"response": []
+				},
+				{
+					"name": "gcm devices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"foobar\",\n    \"name\": \"Galaxy Note 3\",\n    \"device_id\": \"0x1031af3b\",\n    \"application_id\": \"XXXXXXXXXXXXXXXXXXXX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/gcm/"
+					},
+					"response": []
+				},
+				{
+					"name": "change gcm device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"foobar\",\n    \"name\": \"My Galaxy Note 3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/register-device/gcm/foobar/"
+					},
+					"response": []
+				},
+				{
+					"name": "send notification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"principal_id\": \"1346-0-001-002\",\n    \"type\": \"Document\",\n    \"object_id\": \"1\",\n    \"message\": \"Das Tierhaltung Dokument steht zum Abruf bereit\",\n    \"title\": \"Anliegen Tierhaltung\",\n    \"hash\": \"04dbb6713f5381a9adec7bc51529df79e05dcd70cd477a716fa46dae2932b552\",\n    \"timestamp\": 1610028775\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{PROTOCOLL}}://{{host}}/api/v1/push-notifications/send-message/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

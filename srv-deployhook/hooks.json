@@ -1,0 +1,14 @@
+[
+  {
+    "id": "deploy",
+    "execute-command": "./src/redploy.sh",
+    "command-working-directory": ".",
+    "response-message": "at your service!",
+    "pass-arguments-to-command": [
+      {
+        "source": "payload",
+        "name": "commit_hash"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+{% extends "admin/base_site.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags %}
+
+<!-- BODYCLASS -->
+{% block bodyclass %}grp-login text-center{% endblock %}
+
+<!-- EXTRAHEAD-->
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript">
+        (function($) {
+            $(window).load(function(){ $('#id_username').focus(); });
+        })(grp.jQuery);
+    </script>
+{% endblock %}
+
+<!-- CONTENT -->
+{% block content %}
+
+        <form action="{{ app_path }}" method="post" class="form-signin">{% csrf_token %}
+            <img class="img-fluid logo" src="/static/grappelli/new/images/logo.png" alt="" />
+
+                <div class="module grp-module">
+                    {% if form.errors and not form.non_field_errors %}
+                        <div class="grp-row grp-error-row">
+                            <p class="errornote">{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}</p>
+                        </div>
+                    {% endif %}
+                    {% if form.non_field_errors %}
+                        <div class="grp-row grp-error-row">
+                            {% for error in form.non_field_errors %}
+                                <p class="errornote">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if error_message %}
+                        <div class="grp-row grp-error-row">
+                            <p class="errornote">{{ error_message }}</p>
+                        </div>
+                    {% endif %}
+
+                    {% url 'admin_password_reset' as password_reset_url %}
+                    {% if password_reset_url %}
+                        <div class="grp-row">
+                            <p class="grp-description" style="font-size: 11px; line-height: 13px; margin-top: 2px;"><a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a></p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group form-row grp-row{% if form.username.errors %} grp-errors{% endif %}">
+                    <label for="userid" class="required sr-only">Ihr Benutzername</label>
+
+                    <input type="text" name="username" id="id_username" class="form-control" placeholder="Ihr Benutzername" required autofocus>
+                    {% if form.username.errors %}{{ form.username.errors }}{% endif %}
+                </div>
+                <div class="form-group form-row grp-row grp-connected{% if form.password.errors %} grp-errors{% endif %}">
+
+
+
+                    <label for="id_password" class=" required sr-only">Ihr Passwort</label>
+                    <input type="password" name="password"  id="id_password" class="form-control" placeholder="Ihr Passwort" required>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    {% if form.password.errors %}{{ form.password.errors }}{% endif %}
+                </div>
+            </fieldset>
+
+            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-out-alt"></i> Login</button>
+            <div class="login-footer text-center ">
+        			<ul class="legal mt-5 text-muted list-inline">
+        				<!-- li class="list-inline-item"><a href="#">Hilfe</a></li -->
+        				<li class="list-inline-item"><a href="mailto:support@dit-digital.de">Kontakt</a></li>
+        				<li class="list-inline-item"><a href="https://www.dit-digital.de/impressum" target="impressum">Impressum</a></li>
+        			</ul>
+        		</div>
+        </form>
+
+{% endblock %}

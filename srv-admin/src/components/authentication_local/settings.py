@@ -1,0 +1,16 @@
+from src.shared.settings_factory import SettingsFactory
+
+SETTINGS_NAMESPACE = "AUTHENTICATION_LOCAL"
+
+DEFAULTS = {
+    "HANDLE_REGISTER_USER": None,
+    "TENANT_USER_GROUP_ID": 1,
+}
+
+IMPORT_STRINGS = ["HANDLE_REGISTER_USER"]
+
+REMOVED_SETTINGS = []
+
+al_settings = SettingsFactory(
+    SETTINGS_NAMESPACE, DEFAULTS, IMPORT_STRINGS, REMOVED_SETTINGS, None
+)

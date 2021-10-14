@@ -1,0 +1,9 @@
+.env
+*.pyc
+*.log
+src/settings/services/doku_web.py
+env.template
+src/settings/django.py
+src/settings/services/static_files.py
+static/sitemap.xml
+/media/

@@ -1,0 +1,3 @@
+.vagrant/
+yarn.lock
+srv-webserver/etc/nginx/sites-enabled/app.conf

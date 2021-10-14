@@ -1,0 +1,101 @@
+[
+{
+  "model": "defect.area",
+  "pk": 1,
+  "fields": {
+    "name": "Kitchen",
+    "name_de": "Küche",
+    "name_en": "Kitchen",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 2,
+  "fields": {
+    "name": "Corridor",
+    "name_de": "Flur",
+    "name_en": "Corridor",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 3,
+  "fields": {
+    "name": "Living room",
+    "name_de": "Wohnzimmer",
+    "name_en": "Living room",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 4,
+  "fields": {
+    "name": "Bathroom",
+    "name_de": "Badezimmer",
+    "name_en": "Bathroom",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 5,
+  "fields": {
+    "name": "Bedroom",
+    "name_de": "Schlafzimmer",
+    "name_en": "Bedroom",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 6,
+  "fields": {
+    "name": "Children room",
+    "name_de": "Kinderzimmer",
+    "name_en": "Children room",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 7,
+  "fields": {
+    "name": "Office",
+    "name_de": "Büro",
+    "name_en": "Office",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 8,
+  "fields": {
+    "name": "House entrance",
+    "name_de": "Hauseingang",
+    "name_en": "House entrance",
+    "sorting": 0,
+    "visible_groups": []
+  }
+},
+{
+  "model": "defect.area",
+  "pk": 9,
+  "fields": {
+    "name": "House corridor",
+    "name_de": "Hausflur",
+    "name_en": "House corridor",
+    "sorting": 0,
+    "visible_groups": []
+  }
+}
+]

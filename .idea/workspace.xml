@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a20204d3-ac34-406e-bf09-1ac05bb361c2" name="Default Changelist" comment="had &quot;,&quot; in value for declaring which created tuple instead of string" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1qvSGnlPZ0MFs6ioqQr9kMI75LR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srv-admin/src/shared/utils" />
+      <recent name="$PROJECT_DIR$/srv-admin/src/components/authentication_local" />
+      <recent name="$PROJECT_DIR$/srv-admin/src/components/common" />
+      <recent name="$PROJECT_DIR$/srv-admin/src/components/tests" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srv-admin/src/components/tests" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a20204d3-ac34-406e-bf09-1ac05bb361c2" name="Default Changelist" comment="" />
+      <created>1617958478540</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617958478540</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added defect default">
+      <created>1618986919871</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618986919871</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added default defect endpoints">
+      <created>1618989930594</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618989930594</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Endpoint: Einladung per email">
+      <created>1619010420733</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619010420733</updated>
+    </task>
+    <task id="LOCAL-00004" summary="working on settings">
+      <created>1619419321672</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619419321672</updated>
+    </task>
+    <task id="LOCAL-00005" summary="working on settings">
+      <created>1619518069640</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619518069640</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added testing base class">
+      <created>1619680591139</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619680591139</updated>
+    </task>
+    <task id="LOCAL-00007" summary="tes for defect endpoint working">
+      <created>1619681498764</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619681498764</updated>
+    </task>
+    <task id="LOCAL-00008" summary="moved test to correct file">
+      <created>1619682147093</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619682147093</updated>
+    </task>
+    <task id="LOCAL-00009" summary="moved test to correct file">
+      <created>1619695872901</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619695872901</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added search in UserAdmin">
+      <created>1619696928865</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619696928865</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Send email invitation">
+      <created>1620300253220</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620300253220</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added missing files">
+      <created>1620300372868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620300372868</updated>
+    </task>
+    <task id="LOCAL-00013" summary="hide tenant">
+      <created>1620370326976</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620370326976</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Dockerfile" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added defect default" />
+    <MESSAGE value="added default defect endpoints" />
+    <MESSAGE value="Endpoint: Einladung per email" />
+    <MESSAGE value="working on settings" />
+    <MESSAGE value="added testing base class" />
+    <MESSAGE value="tes for defect endpoint working" />
+    <MESSAGE value="moved test to correct file" />
+    <MESSAGE value="added search in UserAdmin" />
+    <MESSAGE value="Send email invitation" />
+    <MESSAGE value="added missing files" />
+    <MESSAGE value="hide tenant" />
+    <option name="LAST_COMMIT_MESSAGE" value="hide tenant" />
+  </component>
+</project>

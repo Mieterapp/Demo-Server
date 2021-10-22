@@ -25,7 +25,7 @@ if not handle_register_user:
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("email", "password", "contract", "birthdate", "principal_id", "is_data_accepted")
+        fields = ("email", "password", "contract", "principal_id", "is_data_accepted")
         required_fields = ("email", "password", "contract", "principal_id", "is_data_accepted")
         extra_kwargs = {"password": {"write_only": True}}
 
@@ -101,11 +101,13 @@ class RegisterAPIView(APIView):
                     },
                     target_email=user.email,
                 )
+            user.is_verified = True
+            user.is_data_accepted = True
             user.save()
 
             if must_validate_email:
                 signup_code = VerificationToken.objects.create_registration_token(user)
-                signup_code.send_registration_email()
+                #signup_code.send_registration_email()
 
             message = {
                 "message": "successfully registered user. Verify your email to login."

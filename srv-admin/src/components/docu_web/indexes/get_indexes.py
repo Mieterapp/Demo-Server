@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 def get_indexes(index: str, query: dict, index_of_mieterakte: int):
     logger.debug(f"get_indexes to_documents getquery {index}")
-    index_of_mieterakte = index_of_mieterakte
     if index=="FREIGEGEBENE_DO":
         getquery = query
         logger.debug(f"get_indexes to_documents getquery {getquery}")
@@ -34,6 +33,22 @@ def get_indexes(index: str, query: dict, index_of_mieterakte: int):
         getquery = query
         logger.debug(f"get_indexes to_documents getquery {getquery}")
         if index_of_mieterakte==0:
+            query = {
+                "field_count": 3,
+                "f1": "BUKRS",
+                "f1_op": "=",
+                "f1_val": "0057",
+                "f1_con": "AND",
+                "f2": "MV",
+                "f2_op": "=",
+                "f2_val": "0242.00004.22",
+                "f2_con": "AND",
+                "f3": "REPOSITORY",
+                "f3_op": "=",
+                "f3_val": "R01_09_01",
+                "f3_con": "AND",
+            }
+        elif index_of_mieterakte==1:
             query = {
                 "field_count": 3,
                 "f1": "BUKRS",
@@ -121,6 +136,8 @@ def get_doc_type(doc_type: str, index_of_mieterakte: int):
         return "issues"
     if doc_type == "MIETERAKTE":
         if index_of_mieterakte==0:
+            return "issues"
+        elif index_of_mieterakte==1:
             return "contract"
         else:
             return "operating_costs"

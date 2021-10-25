@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_all_documents(user):
-    indexes = ["MIETVERTRAG", "BETRIEBSKOSTENA", "FREIGEGEBENE_DO", "MIETERAKTE", "MIETERAKTE"]
+    indexes = ["MIETVERTRAG", "BETRIEBSKOSTENA", "FREIGEGEBENE_DO", "MIETERAKTE", "MIETERAKTE", "MIETERAKTE"]
     response = []
     index_of_mieterakte = 0
     for index in indexes:
@@ -20,7 +20,7 @@ def get_all_documents(user):
             index, build_get_indexes_query_dict_from_user(user), index_of_mieterakte
         )
         if index=="MIETERAKTE":
-            index_of_mieterakte = 1
+            index_of_mieterakte = index_of_mieterakte+1
         if normalized_reponse["success"]:
             response.extend(normalized_reponse["data"]["documents"])
     logger.debug(f"UpdateAPIView tenantJJJ NEW {response}")
@@ -48,7 +48,7 @@ def get_all_documents(user):
 
 
 def get_all_documents_contracts(user, code):
-    indexes = ["MIETVERTRAG", "BETRIEBSKOSTENA", "FREIGEGEBENE_DO", "MIETERAKTE", "MIETERAKTE"]
+    indexes = ["MIETVERTRAG", "BETRIEBSKOSTENA", "FREIGEGEBENE_DO", "MIETERAKTE", "MIETERAKTE", "MIETERAKTE"]
     response = []
     index_of_mieterakte = 0
     for index in indexes:
@@ -60,6 +60,22 @@ def get_all_documents_contracts(user, code):
         logger.debug(f"UpdateAPIView tenantJJJ NEW contract BBB {contract}")
         if index=="MIETERAKTE":
             if index_of_mieterakte==0:
+                query = {
+                    "field_count": 3,
+                    "f1": "BUKRS",
+                    "f1_op": "=",
+                    "f1_val": "0057",
+                    "f1_con": "AND",
+                    "f2": "MV",
+                    "f2_op": "=",
+                    "f2_val": "0242.00004.22",
+                    "f2_con": "AND",
+                    "f3": "REPOSITORY",
+                    "f3_op": "=",
+                    "f3_val": "R01_09_01",
+                    "f3_con": "AND",
+                }
+            elif index_of_mieterakte==1:
                 query = {
                     "field_count": 3,
                     "f1": "BUKRS",
@@ -107,7 +123,7 @@ def get_all_documents_contracts(user, code):
             index, query, index_of_mieterakte
         )
         if index=="MIETERAKTE":
-            index_of_mieterakte = 1
+            index_of_mieterakte = index_of_mieterakte+1
         if normalized_reponse["success"]:
             response.extend(normalized_reponse["data"]["documents"])
     logger.debug(f"UpdateAPIView tenantJJJ NEW ALL {response}")

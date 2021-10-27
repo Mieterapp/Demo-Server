@@ -13,6 +13,9 @@ from src.integrations.gwg_tenant.user.models import Tenant
 from src.components.docu_web.webservices.tickets import (
     build_get_ticketoverview_message_query,
     build_get_ticketoverview_message,
+    get_keywords,
+    get_ticket_process_fields_first_step,
+    build_get_ticket_process_fields_first_step_query,
 )
 
 import logging
@@ -65,9 +68,47 @@ class IssueStatusViewSet(viewsets.ViewSet, mixins.ListModelMixin):
 class IssuesViewSet(viewsets.ViewSet):
     permission_classes = (AllowAny,)
 
+    def load_issues(self):
+        issues = get_keywords()
+        for loaded_issue in issues["data"]["issues"]:
+            code = loaded_issue["code"]
+            try:
+                issue = Issue.objects.get(code=code)
+                #self.stdout.write(self.style.SUCCESS(f"update existing issue {code}"))
+                Issue.objects.filter(code=code).update(**loaded_issue)
+            except Issue.DoesNotExist:
+                #self.stdout.write(self.style.SUCCESS(f"create issue {code}"))
+                issue = Issue.objects.create(**loaded_issue)
+            logger.debug("build_field_values issue_answer.id: {issue_answer.id} issue_answer.code: {issue_answer.code}" + str(loaded_issue))
+            self.load_issue_details(issue)
+
+    def load_issue_details(self, issue):
+        #self.stdout.write(self.style.SUCCESS(f"load issue details {issue.code}"))
+        #logger.debug("build_field_values issue_answer.id: {issue_answer.id} issue_answer.code: {issue_answer.code}" + str(issue))
+        questions_queryset = IssueAnswer.objects.all()
+        loaded_questions = get_ticket_process_fields_first_step(
+            build_get_ticket_process_fields_first_step_query(issue)
+        )
+        try:
+            issue.description = loaded_questions["data"]["issue"]["description"]
+            issue.save()
+            print(str(issue))
+        except:
+            print("Error Issues Details")
+
+        for question in loaded_questions["data"]["questions"]:
+            logger.debug("build_field_values issue_answer.id:" + str(question))
+            q = question["question"]
+            code = question["code"]
+            try:
+                questions_queryset.get(question=q,code=code)
+                questions_queryset.filter(question=q,code=code).update(**question)
+            except:
+                IssueAnswer.objects.create(issue=issue, **question)
+
     def list(self, request):
         formular_pdfs = []
-
+        self.load_issues()
         forms_sorted = self.get_forms()
         for dt in forms_sorted:
             # FIXME: create/use serializer
@@ -85,6 +126,7 @@ class IssuesViewSet(viewsets.ViewSet):
                 "type": dt.type,
                 "category": dt.category,
                 "description_postman": dt.description_postman,
+                "code": dt.code,
             }
 
             rreasons = IssueAnswer.objects.filter(issue=dt).order_by("sorting")
@@ -106,8 +148,9 @@ class IssuesViewSet(viewsets.ViewSet):
                         "required": reason.required,
                     }
                 )
-
-            formular_pdfs.append(data)
+            if data["code"]!="Posteingang" and data["category"]!="":
+                formular_pdfs.append(data)
+            #formular_pdfs.append(data)
         '''
         logger.debug(f"UpdateAPIView tenantJJJ NEW {str(self.request.user.first_name)}")
         getTenant = Tenant.objects.all().filter(name_last=self.request.user.last_name,name_first=self.request.user.first_name).first()

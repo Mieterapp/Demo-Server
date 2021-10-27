@@ -28,7 +28,7 @@ def get_all_documents(user):
         now = datetime.datetime.now()
         nowinyear = now.strftime("%Y-%m-%d")
         nowinyearssplit = nowinyear.split("-")
-        nowinthreeyears = int(nowinyearssplit[0]) - 2
+        nowinthreeyears = int(nowinyearssplit[0]) - 5
         alldatayears = str(nowinthreeyears) + "-" + nowinyearssplit[1] + "-" + nowinyearssplit[2]
         newdataresponse = []
         for indata in response:
@@ -131,7 +131,7 @@ def get_all_documents_contracts(user, code):
         now = datetime.datetime.now()
         nowinyear = now.strftime("%Y-%m-%d")
         nowinyearssplit = nowinyear.split("-")
-        nowinthreeyears = int(nowinyearssplit[0]) - 2
+        nowinthreeyears = int(nowinyearssplit[0]) - 5
         alldatayears = str(nowinthreeyears) + "-" + nowinyearssplit[1] + "-" + nowinyearssplit[2]
         newdataresponse = []
         for indata in response:

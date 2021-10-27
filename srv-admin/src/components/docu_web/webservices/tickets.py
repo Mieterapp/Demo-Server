@@ -194,6 +194,14 @@ def build_field_values(answers):
             logger.debug(
                 f"build_field_values issue_answer.id: {issue_answer.id} issue_answer.code: {issue_answer.code}"
             )
+            if issue_answer.code.find("DATE_") != -1:
+                raw_data_date = json_answers[item][:10]
+                all_data_asgerman_date = raw_data_date.split("-")
+                json_answers[item] = all_data_asgerman_date[2]+"."+all_data_asgerman_date[1]+"."+all_data_asgerman_date[0]
+            if issue_answer.code.find("TIME_") != -1:
+                json_answers[item] = json_answers[item][11:19]
+            logger.debug(f"issue answer with this id: {json_answers[item]} ")
+            logger.debug(f"issue answer with this id: {type(json_answers[item])} ")
             acc[issue_answer.code] = json_answers[item]
         except IssueAnswer.DoesNotExist:
             logger.error(f"issue answer with this id: {item} does not exist")
@@ -210,6 +218,7 @@ def build_create_ticket_query(data):
     #logger.error(f"build_create_ticket_query: {testdata.answers}")
     #if len(testdata.answers)!=0:
     logger.error(f"build_create_ticket_query: {type(data)}")
+    logger.error(f"build_create_ticket_query: {data}")
     query = {
         "method": "createTicket",
         "sSubject": data["issue"].code,

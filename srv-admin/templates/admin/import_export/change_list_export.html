@@ -1,7 +1,0 @@
-{% extends "admin/import_export/change_list.html" %}
-{% load i18n %}
-
-{% block object-tools-items %}
-  <div class="col-md-3 button-row"><a href="export/{{ cl.get_query_string }}" class="btn btn-primary btn-block"><i class="fa fa-cloud"></i>{% trans "Export" %}</a></div>
-  {{ block.super }}
-{% endblock %}

@@ -1,1 +1,0 @@
-NS = "dit_push_notifications"

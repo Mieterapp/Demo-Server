@@ -1,1 +1,0 @@
-NS = "gwg_api"

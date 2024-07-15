@@ -1,1 +1,0 @@
-default_app_config = 'src.integrations.gwg_tenant.apps.GwgTenantConfig'

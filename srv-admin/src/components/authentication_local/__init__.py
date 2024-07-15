@@ -1,1 +1,0 @@
-NS = "authentication_local"
